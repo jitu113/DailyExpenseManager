@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOqa4KCV9REu7w74q+17DjQAAAAACAAAAAAAQZgAAAAEAACAAAADXS35nFqQEu5vGwgiuZb40tN+wEQ9BeSWLxJdOWdjGvQAAAAAOgAAAAAIAACAAAADQDKIQ2Gz2VasFT3JA8jMOKdDfWtuFnG9+muL51IjpsyAAAABnzIl1M1F8usnuL9Wkx0rgdcAcNA2M351xGBGYWMIoAEAAAADecC+ftkWLJcMCJBvxHqgeF8HR6zb1+FA6SJVf2Ev6xLvGSiowPUxjOw4JSJskj97H4+R0F3c8tw5VGtyz2UFc</EncryptedPassword>
+    <_PublishTargetUrl>ftp://httpdocs.dailyexpensetrackerapi.in/httpdocs</_PublishTargetUrl>
+    <History>False|2021-10-31T17:30:26.9922095Z;</History>
+  </PropertyGroup>
+</Project>

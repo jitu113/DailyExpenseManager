@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.7/angular-filter.js">
+    </script>
+
+    <script src="~/scripts/Expense.js"></script>
+    <script src="~/scripts/Common.js"></script>
+    <style>
+        .expenseTbl {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            /*table-layout: fixed;*/
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+        body {
+            font: normal 14px;
+            font-family: Consolas;
+        }
+
+        .table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: forestgreen;
+            color: white;
+            font: 10px;
+        }
+
+        #detailsTbl {
+            border-collapse: collapse;
+            /*border-left:1px solid black;*/
+        }
+
+
+        .form__group {
+            position: relative;
+            margin-top: 10px;
+            height: 30px;
+        }
+
+        .form__field {
+            right: 0px;
+            position: absolute;
+            top: 0px;
+            width: 70%;
+            height: 100%;
+        }
+
+
+        .form__field_input {
+            width: 100%;
+            border: none;
+            font-family: inherit;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            outline: 0;
+            font-size: 1.3rem;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+            background-color: white;
+        }
+
+        /*.form__group_footer {
+            margin-top: 20px;
+            height: 30px;
+        }*/
+
+        .button {
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            height: 30px;
+        }
+
+        .expenseTbl {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+            .expenseTbl th {
+                padding: 8px;
+                height: 10px;
+                text-align: left;
+                font-family: Consolas;
+                /*background-color: forestgreen;*/
+                /*color: white;*/
+            }
+
+                    .expenseTbl td {
+                        border:none;
+                        background-color:white;
+                        /*border-bottom: 1px solid #ddd;*/
+                        padding: 8px;
+                        overflow: hidden;
+                        word-wrap:normal;
+                        height:10px;
+                    }
+            .expenseTbl tr {
+
+                border-bottom: 1px solid #ddd;
+
+            }
+            .expenseTbl th {
+                border-bottom: 1px solid black;
+            }
+        
+            .card
+
+        {
+            box-shadow: 0 4px 8px 0 aqua;
+            transition: 0.3s;
+           /*// width: 40%;*/
+            border-radius: 5px;
+        }
+
+            
+
+
+        div.a {
+            position: fixed;
+            width: 100%;
+            top: 0px;
+            height: 120px;
+            background-image: url(../Images/michael-longmire-lhltMGdohc8-unsplash.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        /*div{
+        border:1px solid black;
+
+                }*/
+
+        div.b {
+            position: absolute;
+            right: 0;
+            top: 0px;
+            height: 90px;
+            border-collapse: collapse;
+        }
+
+        div.c {
+            margin-top: 201px;
+            border-collapse: collapse;
+            border: 3px solid blue;
+            background-color: aqua;
+        }
+
+        #detailsTbl {
+            border-collapse: collapse;
+            /*border-left:1px solid black;*/
+        }
+
+        .txtList {
+            border: none;
+            background-color:white;
+           width:100%;
+        }
+
+        .form__group {
+            position: relative;
+            margin-top: 10px;
+            height: 30px;
+        }
+
+        .form__field {
+            right: 0px;
+            position: absolute;
+            top: 0px;
+            width: 70%;
+            height: 100%;
+            text-align: left;
+        }
+
+        .form__label {
+            display: block;
+            transition: 0.2s;
+            font-size: 1rem;
+            width: 40%;
+            position: absolute;
+            bottom: -12px;
+            text-align: left;
+        }
+
+        .form__field_input {
+            width: 100%;
+            border: none;
+            font-family: inherit;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            outline: 0;
+            font-size: 1.3rem;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+            background-color: white;
+        }
+
+        .form__group_footer {
+            margin-top: 10px;
+            height: 30px;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            height: 30px;
+        }
+
+
+        .head {
+            /*background-image: url(../Images/michael-longmire-lhltMGdohc8-unsplash.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;*/
+            background-color: black;
+            color:whitesmoke;
+        }
+
+        @@media( min-width : 500px) {
+            .my-table-responsive {
+                /*overflow-x: scroll;*/
+            }
+
+            .expenseTbl {
+                table-layout: fixed;
+                overflow: hidden;
+                word-wrap: break-word;
+                margin: 0;
+            }
+
+            .WebSearch {
+                display:block;
+            }
+            .mobileSearch
+            {
+
+                display:none;
+            }
+        }
+        @@media( min-width : 0px) and (max-width : 500px) {
+            .my-table-responsive {
+                overflow-x: auto;
+            }
+            .WebSearch {
+                display: none;
+            }
+
+            .mobileSearch {
+                display: block;
+            }
+            .expenseTbl {
+                table-layout: auto;
+                overflow: hidden;
+                word-wrap: break-word;
+                margin: 0;
+            }
+          
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+            ul li {
+                margin: 0;
+            }
+        thead
+        {
+            border-bottom:1px solid black;
+
+        }
+     
+
+   .msgdiv  {
+font-size:small;
+  position: relative;
+  animation: myfirst 3s 2;
+  animation-direction: alternate;
+}
+@@keyframes myfirst {
+  0%   {color: green; left: 0px;}
+  50%  {color: black; right: 0px;}
+  100%  {color: green; left: 0px;}
+  /*75%  {background: white; right:0px; }
+  100% {background: green; left: 0px;}*/
+}
+        /*.msgdiv {
+            opacity: 1;
+            transition: opacity 500ms;
+        }
+
+            .msgdiv.waa {
+                opacity: 0;
+            }*/
+    </style>
+ 
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    @*<div class="container">*@
+    <div class="container-fluid " style="background-color:black;height:60px;font-family:Consolas;box-shadow:0px 2px grey">
+        <div class="row" style="">
+            <div class="col-8">
+                <h6 style="color:white;text-align:left;bottom:0px;margin-top:10px"><span style="font-family:inherit">Daily Expense Manager</span></h6>
+            </div>
+            @*<div class="col-4" style="color:white;">
+                    Hello Jay
+                </div>*@
+        </div>
+    </div>
+    <div class="container" style="border:1px solid pink;">
+        @*<div class="container" style="margin-left:0px;margin-right:4px;margin-top:2px;background-color:yellow;border:1px solid pink;">*@
+        <div class="row mobileSearch">
+            <div class="col-md-6 col-12">
+                <div class="row" style="padding-left:0px">
+
+
+
+                    <div class="col-sm-3 col-6" style="padding:0;padding-left:1px;height:30px">
+                        <input type="date" ng-model="FromDate" style="width:100%;height:30px">
+                    </div>
+                    <div class="col-sm-3 col-6" style="padding:0;padding-left:1px;height:30px">
+                        <input type="date" ng-model="ToDate" style="width:100%;height:30px;">
+                    </div>
+
+                    <div class="col-sm-3 col-6 xp" style="padding:0px;box-shadow:0px 2px white">
+                        <button type="button" data-toggle="modal" data-target="#myModal" class="button" style="background-color:blue;width:100%;margin:0;margin-left:0px;height:45px">Create</button>
+                    </div>
+                    <div class="col-sm-3 col-6" style="padding:0;padding-left:1px;box-shadow:0px 2px white">
+                        <button type="button" class="button" style="background-color:teal;width:100%;margin:0;height:45px;margin-right:0px;right:2px" ng-click="SearchItemPost()">Search</button>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row WebSearch">
+            <input type="date" ng-model="FromDate" style="float:left">
+            <input type="date" ng-model="ToDate" style="float:left">
+            <button type="button" data-toggle="modal" data-target="#myModal" class="button" style="background-color:blue;float:left">Create</button>
+            <button type="button" class="button" style="background-color:teal;float:left" ng-click="SearchItemPost()">Search</button>
+
+           
+        </div>
+
+
+    </div>
+
+    <div class="container" style="border:1px solid green;">
+
+        @*<div class="container" style="border:1px solid green;left:15px;margin-right:15px;background-color:aqua">*@
+        @RenderBody()
+
+        @*<div style="position:fixed;bottom:0px;background-color:black;width:100%">
+
+                <p>&copy; @DateTime.Now.Year - JDDevlops</p>
+
+            </div>*@
+    </div>
+    @*<div class="container-fluid" style="position:fixed;bottom:0px;background-color:black;width:100%;color:white;height:20px">
+
+
+        @DateTime.Now.Year - JDDevlops
+
+
+        </div>*@
+
+    @*</div>*@
+
+
+
+</body>
+</html>

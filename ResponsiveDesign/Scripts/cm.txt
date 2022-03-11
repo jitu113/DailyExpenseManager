@@ -1,0 +1,19 @@
+$(window).scroll(function () {
+    //set scroll position in session storage
+    sessionStorage.scrollPos = $(window).scrollTop();
+});
+var init = function () {
+    //get scroll position in session storage
+    $(window).scrollTop(sessionStorage.scrollPos || 0)
+};
+window.onload = init;
+forMateDate = function (unformattedDate) {
+
+    var formattedDate = new Date(unformattedDate);
+    var d = formattedDate.getDate();
+    var m = formattedDate.getMonth();
+    m += 1;  // JavaScript months are 0-11
+    var y = formattedDate.getFullYear();
+    return d + "." + m + "." + y;
+
+}

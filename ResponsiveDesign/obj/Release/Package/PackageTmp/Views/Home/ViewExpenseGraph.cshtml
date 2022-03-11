@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BusinessObject.BudgetExpense>
+
+@{
+    ViewBag.Title = "ViewExpenseGraph";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewExpenseGraph</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.ItemType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expense)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountLeft)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+   
+    <td>
+        @Html.DisplayFor(modelItem => item.ItemType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Budget)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Expense)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AmountLeft)
+    </td>
+
+</tr>
+}
+<tr>
+    <td>
+       <label>Total</label>
+    </td>
+   
+    <td>
+        <label>  @Model.Sum(x => x.Budget)</label>
+    </td>
+    <td>
+        <label>  @Model.Sum(x => x.Expense)</label>
+    </td>
+    <td>
+        <label> @(Model.Sum(x => x.Budget) - Model.Sum(x => x.Expense))</label>
+    </td>
+
+</tr>
+
+</table>

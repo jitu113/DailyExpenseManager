@@ -1,0 +1,6 @@
+C:\My Files\SourceCode\ExpenseApi\Helper\bin\Release\Helper.dll
+C:\My Files\SourceCode\ExpenseApi\Helper\bin\Release\Helper.pdb
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Release\Helper.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Release\Helper.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Release\Helper.dll
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Release\Helper.pdb

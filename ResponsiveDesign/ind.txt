@@ -1,0 +1,166 @@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="my-table-responsive">
+
+
+        <ul class="TransUL" style="list-style-type:none;padding-left:0px;"></ul>
+   
+    <div class="row" style="margin-top:5px;">
+        <div class="col-3" style="text-align:left">
+            GrandTotal:
+        </div>
+        <div class="col-2" >
+            <b style="text-align:left" id="grndttl"></b>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog" data-backdrop="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:teal">
+                <div style="width:50%">
+                    @*<h5> Date </h5>*@
+                    <lable>Date</lable>
+                    <input type="date" name="Date" class="form-control" style="width:100%" id="dateid" />
+                   
+                </div>
+                <div style="position:absolute;top:10px;right:5px">
+                    <button type="button" class="close" data-dismiss="modal" style="color:wheat">&times;</button>
+                </div>
+
+            </div>
+            <div class="modal-body">
+                @*<label for="date" class="form__label">Date</label>*@
+
+                <div class="form__group field">
+                    <label for="particular" class="form__label">Particular</label>
+                    <div class="form__field">
+                        <input type="text" placeholder="Particular" name="particular" ng-model='particular' required class="form__field_input" />
+                    </div>
+                </div>
+
+                <div class="form__group field">
+                    <label for="particular" class="form__label">IteamType</label>
+                    <div id="itemTypeDiv" class="form__field">
+                        <select name="itemType" id="itemType" class="form__field_input">
+                            @*<option value=0 selected="selected">ItemType</option>*@
+                            <option value=1>Food</option>
+                            <option value=2>Shopping</option>
+                            <option value=3>Online Food</option>
+                            <option value=4>Bill</option>
+                            <option value=5>Travel</option>
+                            <option value=7>Other</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form__group field">
+                    <label for="unitprice" class="form__label">UnitPrice</label>
+                    <div class="form__field">
+                        <input type="number" class="form__field_input" placeholder="UnitPrice" onkeyup="CalculateTotol()" name="unitprice" ng-model='unitPrice' required" />
+                    </div>
+
+                </div>
+                <div class="form__group field">
+                    <label for="quantity" class="form__label">Quantity</label>
+                    <div class="form__field">
+                        <select name="quantity" onchange="CalculateTotol()" id="quantity" class="form__field_input">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form__group field">
+                    <label for="totol" class="form__label">Totol</label>
+                    <div class="form__field">
+                        <input type="number" class="form__field_input" placeholder="Total" name="total" ng-model="total" id="totalJq" />
+                    </div>
+
+                </div>
+                <div class="form__group field">
+                    <label for="totol" class="form__label">Remarks</label>
+                    <div class="form__field">
+                        <input type="text" placeholder="Remarks" name="remarks" ng-model="Remarks" class="form__field_input" />
+                    </div>
+
+                </div>
+                @*@Html.DatePickerFor(model=> model.Date, "autoclose=true", "todayBtn=true", "todayHighlight=true")*@
+                @*<input type="date" class="form-control"  name="Date" value="2013-01-08"/>*@
+                @*<input type="date" class="form-control" name="Date" id=@Model onclick="setDate('@Model')" onloadeddata="setDate(@Model)" />*@
+
+                <div class="form__group field" id="BeforeCreation1" style="margin-top:20px">
+                    <button type="button" class="button" style="background-color:darkred;width:50%;margin:0;float:right" ng-click="Clear()">Clear</button>
+                    <button type="button" class="button" style="background-color:teal;width:50%;margin:0;float:right" ng-click="CreateTransaction()">Save</button>
+
+                    @*<div class="col-6">
+
+        </div>
+        <div class="col-3">
+
+
+
+        </div>
+        <div class="col-3">
+        </div>*@
+                    @*<input type="button" value="Save" style="float:right;height:30px;background-color:dodgerblue" class="button" ng-click="CreateTransaction()" />*@
+                    @*<input type="button" value="Clear" style="background-color:orangered;height:30px;float:right" class="button" ng-click="Clear()" />*@
+                    @*<input type="button" value="Clear" style="background-color:orangered;height:30px;" class="button" ng-click="Clear()" />*@
+
+
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+              
+
+
+                <div class="AfterCreation" style="display:none" id="AfterCreation1">
+                    <div class="row">
+                        <div class="col msgdiv" id="msgbox">
+
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top:2px">
+
+
+                        <input type="button" class="btn btn-default mybutton" style="background-color:#04AA6D;color:white;width:130px;margin:0;float:right;font-size:13px" ng-click="Clear()" value="Clear and add new" id="btnClrAndAdd" />
+
+
+                        <input type="button" class="btn btn-default" data-dismiss="modal" style="background-color:red;color:white;width:130px;margin:0;float:right;font-size:13px;" value="Close" />
+                    </div>
+
+                    @*<div class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-5" style="padding:0">
+
+                    <input type="button" class="btn btn-default mybutton" style="background-color:#04AA6D;color:white;width:100%;margin:0;" ng-click="Clear()" value="Clear and add new" id="btnClrAndAdd" />
+                </div>
+                <div class="col-5" style="padding:0">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" style="background-color:red;color:white;width:100%;margin:0" value="Close" />
+                </div>
+            </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var CurrentDetailsUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]'+'/API/Expense/GetCurrentDetails';
+    var IndexJsUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]' +'/API/Expense/GetExpenseDetails';
+    var CreateUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]' +'/API/Expense/CreateTransaction';
+
+
+</script>
+<script src="~/scripts/Expense.js"></script>
+<script src="~/scripts/Common.js"></script>

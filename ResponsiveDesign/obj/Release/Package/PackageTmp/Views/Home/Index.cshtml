@@ -1,0 +1,442 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="indexcon" ng-app="myApp" ng-controller="myCtrl">
+
+    @*#16b7b1*@
+    <div class="container" style="margin-bottom:15px;">
+
+        <div class="card1Web">
+            <div class="row" style="margin-top:5px">
+                <div class="col-3"></div><div class="col-3"><input type="button" value="Create" data-toggle="modal" data-target="#myModal" class="button" style="background-color:black;color:white;width:100%"></div>
+                <div class="col-3"><input type="button" value="Filter" class="button" data-toggle="modal" data-target="#SearchModal" style="background-color:grey;color:white;width:100%"></div><div class="col-3"></div>
+            </div>
+
+            <table style="table-layout:fixed;width:100%">
+                <tr>
+                    <td style="width:70%;background-color:green;font-size:10px;height:5px;border-radius:8px 0 0 8px;">  </td>
+                    <td style="width:30%;background-color:red;border-radius:0px 8px 8px 0px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="card1Mobile">
+            <div class="row" style="margin-top:5px;">
+                <div class="col-6"><input type="button" value="Create" data-toggle="modal" data-target="#myModal" class="button" style="background-color:black;color:white;width:100%;"></div>
+                <div class="col-6"><input type="button" value="Filter" class="button" data-toggle="modal" data-target="#SearchModal" style="background-color:grey;color:white;width:100%;"></div>
+            </div>
+
+            <table style="table-layout:fixed;width:100%;margin-left:2px">
+                <tr style="">
+                    <td style="width:70%;background-color:#00693E;height:5px;border-radius:8px 0 0 8px;text-align:center;color:white"></td>
+                    <td style="width:30%;background-color:#D2122E;border-radius:0px 8px 8px 0px;text-align:center;color:white"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container" style="padding:0;">
+        <div class="myTableContainer" style="margin-top:10px;margin-bottom:30px;">
+
+
+
+        </div>
+
+        <div class="container" style="position:fixed;bottom:0">
+
+            <div class="row" style="text-align:center;margin-right:14px">
+
+                <h6 style="text-align:center;background-color:whitesmoke;width:100%;border-radius:5px;color:black;margin:0;display:none" id="grandTtlDiv">  Grand Total: <span id="grndttl"> </span> </h6>
+                <h6 style="text-align:center;background-color:whitesmoke;width:100%;border-radius:5px;color:black;margin:0;display:none" id="resultDiv"></h6>
+
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="LoginModal" role="dialog" data-backdrop="static" style="margin-top:90px">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:teal;color:white">
+                        Daily Expense Tracker
+
+                    </div>
+
+                    <div class="modal-body">
+                        @*<label for="date" class="form__label">Date</label>*@
+                        <form action="/home/Register" method="post" id="loginForm">
+
+
+                            <div class="row">
+                                <div class="col-1">
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" class="form__field_input" placeholder="UserName" name="UserName" required" style="border-bottom:1px solid #ddd;width:100%;" />
+                                </div>
+                                <div class="col-2">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1">
+                                </div>
+                                <div class="col-9">
+                                    <input type="password" class="form__field_input" placeholder="Password" name="Password" required" style="border-bottom:1px solid #ddd;width:100%" />
+                                </div>
+                                <div class="col-2">
+                                </div>
+                            </div>
+                            <div class="row" id="confirmPassword">
+                                <div class="col-1">
+                                </div>
+                                <div class="col-9">
+                                    <input type="password" class="form__field_input" placeholder="Confirm Password" name="" required" style="border-bottom:1px solid #ddd;width:100%" />
+                                </div>
+                                <div class="col-2">
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top:5px">
+                                <div class="col-1">
+                                </div>
+                                <div class="col-9">
+                                    <input type="submit" value="Register" class="button" style="background-color:black;color:white;width:100%;margin-left:0" id="btnLogin">
+                                </div>
+                                <div class="col-2">
+                                </div>
+                            </div>
+
+                            @*<div class="form__group field">
+                                    <label for="unitprice" class="form__label">UserName</label>
+                                    <div class="form__field">
+                                        <input type="text" class="form__field_input" placeholder="UserName" name="UserName" required" />
+                                    </div>
+
+                                </div>
+                                <div class="form__group field">
+                                    <label for="unitprice" class="form__label">Password</label>
+                                    <div class="form__field">
+                                        <input type="password" class="form__field_input" placeholder="Password" name="Password" required" />
+                                    </div>
+
+                                </div>
+                                <div class="form__group field" id="confirmPassword">
+                                    <label for="unitprice" class="form__label">Confirm Password</label>
+                                    <div class="form__field">
+                                        <input type="password" class="form__field_input" placeholder="Confirm Password" name="unitprice" required" />
+                                    </div>
+
+                                </div>
+                                <div class="form__group field" id="confirmPassword" style="margin-top:25px">
+
+                                    <div class="form__field">
+                                        <input type="submit" value="Register" class="button" style="background-color:black;color:white;width:50%;" id="btnLogin">
+                                    </div>
+
+                                </div>*@
+
+
+                            <div class="row" style="margin-top:30px" id="LoginDiv">
+                                <label style="padding-left:20px">Already Have a account!<input type="button" value="Login" onclick="ShowLogin()"> Instead</label>
+
+                            </div>
+                            @*<div class="row" style="margin-top:30px" id="ForgotPassword">
+                                    <label style="padding-left:20px">Forgot Password?Click<input type="button" value="Here" onclick="ShowLogin()"> Instead</label>
+
+                                </div>*@
+                            <div class="row" style="margin-top:30px;display:none" id="RegisTerDiv">
+                                <label style="padding-left:20px">Don't Have a account!<input type="button" value="Register" onclick="ShowRegister()"> Instead</label>
+
+                            </div>
+
+                            @*<div class="row" style="margin-top:15px">
+                                    <div class="col-6"><input type="submit" ng-click="Login(false)" value="Login" class="button" style="background-color:blue;color:white;width:100%;"></div>
+
+
+                                </div>*@
+                            @*<div class="row" style="margin-top:4px">
+
+                                    <div class="col-6"><input type="button" ng-click="ForgotPassword(false)" value="Forgot Password" class="button" style="background-color:orangered;color:white;width:100%;"></div>
+
+                                </div>*@
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="DeleteModal" role="dialog" data-backdrop="true">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="border:1px solid black;top:150px">
+                    <div class="modal-header" style="background-color:teal;color:white">
+                        Daily Expense Tracker
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="succsess">
+                            <h6 style="width:100%;text-align:center" id="DeleteMsg"> Are you sure you want to delete </h6>
+                            <div class="row mobileDelete" style="margin-top:20px">
+
+                                <div class="col-6">
+                                    <button type="button" class="button" style="background-color:red;color:white;width:90px;margin-right:0px;float:left" id="btnDeleteOk">Yes</button>
+                                </div>
+
+                                <div class="col-6">
+                                    <button type="button" class="button" data-dismiss="modal" style="background-color:#00563B;color:white;width:90px;margin-right:0px;float:right">Close</button>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ResultModal" role="dialog" data-backdrop="true">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="border:1px solid black;top:150px">
+                    <div class="modal-header" style="background-color:teal;color:white">
+                        Daily Expense Tracker
+
+                    </div>
+                    <div class="modal-body">
+                        @*<label for="date" class="form__label">Date</label>*@
+
+                        <div>
+                            <h6 style="width:100%;text-align:center" id="ResultMsg"> Updated Successfully </h6>
+                            <div class="row" style="margin-top:20px">
+                                <div class="col-4">
+                                </div>
+                                <div class="col-4">
+                                    <button type="button" class="button" data-dismiss="modal" style="background-color:#00563B;color:white;width:90px;margin-right:0px">Ok</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="SearchModal" role="dialog" data-backdrop="true">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:teal;color:white">
+                        Search
+
+                    </div>
+                    <div style="position:absolute;top:10px;right:5px">
+                        <button type="button" class="close" data-dismiss="modal" style="color:wheat">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        @*<label for="date" class="form__label">Date</label>*@
+
+                        <div class="form__group field">
+                            <label for="particular" class="form__label">From Date</label>
+                            <div class="form__field">
+                                <input type="date" ng-model="FromDate" style="width:100%;height:30px" class="date" id="fromdateid">
+                            </div>
+                        </div>
+                        <div class="form__group field">
+                            <label for="particular" class="form__label">To Date</label>
+                            <div class="form__field">
+                                <input type="date" ng-model="ToDate" style="width:100%;height:30px" class="date" id="todateid">
+                            </div>
+                        </div>
+
+                        <div class="form__group field">
+                            <label for="particular" class="form__label">Item Type</label>
+                            <div id="itemTypeDiv" class="form__field">
+                                <select name="itemType" id="itemTypeSerch" class="form__field_input">
+                                    <option value=0 selected="selected">All</option>
+                                    <option value=1>Food</option>
+                                    <option value=2>Shopping</option>
+                                    <option value=3>Grocery</option>
+                                    <option value=4>Bill</option>
+                                    <option value=5>Travel</option>
+                                    <option value=6>Investment</option>
+                                    <option value=7>Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form__group field">
+                            <label for="particular" class="form__label">KeyWords</label>
+                            <div class="form__field">
+                                <input type="text" placeholder="eg: milk" name="particular" ng-model='KeyWords' required class="form__field_input" />
+                            </div>
+                        </div>
+
+
+
+                        @*<div class="form__group field" id="" style="margin-top:20px">
+                                <button type="button" class="button" style="background-color:#00AB66;width:50%;margin:0;float:right" ng-click="Clear()">Clear</button>
+                                <button type="button" class="button" style="background-color:#007bff;width:50%;margin:0;float:right" ng-click="SearchItemPost(false)">Submit</button>
+                            </div>*@
+                        <div class="row" style="margin-top:35px">
+                            <div class="col-6"><input type="button" ng-click="SearchItemPost(false)" value="Submit" class="button" style="background-color:black;color:white;width:100%;"></div>
+                            <div class="col-6"><input type="button" ng-click="Clear()" value="Clear" class="button" style="background-color:#00563B;color:white;width:100%;"></div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="myModal" role="dialog" data-backdrop="true">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:teal;color:white">
+                        <div style="width:50%">
+                            @*<h5> Date </h5>*@
+                            <lable>Date</lable>
+                            <input type="date" name="Date" class="form-control" style="width:100%" id="dateid" />
+                        </div>
+                        <div style="position:absolute;top:10px;right:5px">
+                            <button type="button" class="close" data-dismiss="modal" style="color:wheat">&times;</button>
+                        </div>
+
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="form__group field">
+                            <label for="particular" class="form__label">IteamType</label>
+                            <div id="itemTypeDiv" class="form__field">
+                                <select name="itemType" id="itemType" class="form__field_input">
+                                    @*<option value=0 selected="selected">ItemType</option>*@
+                                    <option value=1 selected="selected">Food</option>
+                                    <option value=2>Shopping</option>
+                                    <option value=3>Grocery</option>
+                                    <option value=4>Bill</option>
+                                    <option value=5>Travel</option>
+                                    <option value=6>Investment</option>
+                                    <option value=7>Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form__group field">
+                            <label for="unitprice" class="form__label">UnitPrice</label>
+                            <div class="form__field">
+                                <input type="number" class="form__field_input" placeholder="UnitPrice" onkeyup="CalculateTotol()" name="unitprice" ng-model='unitPrice' required" />
+                            </div>
+
+                        </div>
+                        <div class="form__group field">
+                            <label for="quantity" class="form__label">Quantity</label>
+                            <div class="form__field">
+                                <select name="quantity" onchange="CalculateTotol()" id="quantity" class="form__field_input">
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form__group field">
+                            <label for="totol" class="form__label">Totol</label>
+                            <div class="form__field">
+                                <input type="number" class="form__field_input" placeholder="Total" name="total" ng-model="total" id="totalJq" />
+                            </div>
+
+                        </div>
+                        <div class="form__group field">
+                            <label for="particular" class="form__label">Description</label>
+                            <div class="form__field">
+                                <input type="text" placeholder="Description" name="particular" ng-model='particular' required class="form__field_input" />
+                            </div>
+                        </div>
+                        @*<div class="form__group field">
+            <label for="totol" class="form__label">Remarks</label>
+            <div class="form__field">
+                <input type="text" placeholder="Remarks" name="remarks" ng-model="Remarks" class="form__field_input" />
+            </div>
+
+        </div>*@
+                        <div class="row" style="margin-top:35px;" id="BeforeCreation1">
+                            <div class="col-6"><input type="button" ng-click="CreateTransaction()" value="Add" class="button" style="background-color:#007FFF;color:white;width:100%;"></div>
+                            <div class="col-6"><input type="button" ng-click="Clear()" value="Clear" class="button" style="background-color:#1FB393; color: white; width: 100%;"></div>  @*#00563B*@
+                        </div>
+                        <div class="AfterCreation" style="margin-top:35px;" id="AfterCreation1" hidden="hidden">
+                            <div class="row">
+                                <div class="col" id="msgbox">
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="row" style="margin-top:2px;">
+                                <div class="col-6"><input type="button" ng-click="Clear()" value="Clear and add new" id="btnClrAndAdd" class="button" style="background-color:black;color:white;width:100%;"></div>
+                                <div class="col-6"><input type="button" ng-click="Clear()" value="Close" class="button" style="background-color:#00563B;color:white;width:100%;" data-dismiss="modal"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+
+
+
+                        @*<div class="AfterCreation" style="display:block" id="AfterCreation1">
+                                <div class="row">
+                                <div class="col msgdiv" id="msgbox">
+
+                                </div>
+                            </div>*@
+
+                        @*<div class="row" style="margin-top:2px">
+                                <input type="button" class="btn btn-default mybutton" style="background-color:#04AA6D;color:white;width:130px;margin:0;float:right;font-size:13px" ng-click="Clear()" value="Clear and add new" id="btnClrAndAdd" />
+                                <input type="button" class="btn btn-default" data-dismiss="modal" style="background-color:red;color:white;width:130px;margin:0;float:right;font-size:13px;" value="Close" />
+                            </div>*@
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+</div>
+
+<script>
+ 
+    var CurrentDetailsUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]'+'/Expense/GetCurrentDetails';
+    var IndexJsUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]' +'/Expense/GetExpenseDetails';
+    var CreateUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]' + '/Expense/CreateTransaction';
+    var DeleteUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]' + '/Expense/DeleteItem';
+    var LoginUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]' + '/Account/UserLogin';
+    var UserCreateUrl = '@System.Configuration.ConfigurationManager.AppSettings["APIBaseURL"]' + '/Account/CreateUser';
+
+
+</script>
+<script src="~/scripts/Expense.js"></script>

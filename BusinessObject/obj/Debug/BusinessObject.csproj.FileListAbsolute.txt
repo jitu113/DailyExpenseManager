@@ -1,0 +1,23 @@
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\BusinessObject\bin\Debug\BusinessObject.dll
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\BusinessObject\bin\Debug\BusinessObject.pdb
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.csprojResolveAssemblyReference.cache
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.dll
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.pdb
+E:\Source Code\ExpenseApi\BusinessObject\bin\Debug\BusinessObject.dll
+E:\Source Code\ExpenseApi\BusinessObject\bin\Debug\BusinessObject.pdb
+E:\Source Code\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.csprojAssemblyReference.cache
+E:\Source Code\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
+E:\Source Code\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.dll
+E:\Source Code\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.pdb
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\bin\Debug\BusinessObject.dll
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\bin\Debug\BusinessObject.pdb
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.dll
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Debug\BusinessObject.pdb
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\bin\Debug\BusinessObject.dll
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\bin\Debug\BusinessObject.pdb
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Debug\BusinessObject.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Debug\BusinessObject.dll
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Debug\BusinessObject.pdb

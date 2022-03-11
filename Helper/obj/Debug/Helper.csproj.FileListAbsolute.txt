@@ -1,0 +1,17 @@
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\Helper\bin\Debug\Helper.dll
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\Helper\bin\Debug\Helper.pdb
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\Helper\obj\Debug\Helper.dll
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\Helper\obj\Debug\Helper.pdb
+E:\Source Code\ExpenseApi\Helper\bin\Debug\Helper.dll
+E:\Source Code\ExpenseApi\Helper\bin\Debug\Helper.pdb
+E:\Source Code\ExpenseApi\Helper\obj\Debug\Helper.csprojAssemblyReference.cache
+E:\Source Code\ExpenseApi\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+E:\Source Code\ExpenseApi\Helper\obj\Debug\Helper.dll
+E:\Source Code\ExpenseApi\Helper\obj\Debug\Helper.pdb
+C:\My Files\SourceCode\ExpenseApi\Helper\bin\Debug\Helper.dll
+C:\My Files\SourceCode\ExpenseApi\Helper\bin\Debug\Helper.pdb
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Debug\Helper.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Debug\Helper.dll
+C:\My Files\SourceCode\ExpenseApi\Helper\obj\Debug\Helper.pdb

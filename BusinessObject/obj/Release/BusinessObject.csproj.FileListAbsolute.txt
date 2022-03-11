@@ -1,0 +1,12 @@
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\bin\Release\BusinessObject.dll
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\bin\Release\BusinessObject.pdb
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Release\BusinessObject.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Release\BusinessObject.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Release\BusinessObject.dll
+C:\My Files\SourceCode\ExpenseApi\BusinessObject\obj\Release\BusinessObject.pdb
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\bin\Release\BusinessObject.dll
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\bin\Release\BusinessObject.pdb
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Release\BusinessObject.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Release\BusinessObject.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Release\BusinessObject.dll
+C:\My Files\SourceCode\ResponsiveDesign\BusinessObject\obj\Release\BusinessObject.pdb

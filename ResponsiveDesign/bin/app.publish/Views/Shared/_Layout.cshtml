@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<meta name="theme-color" content="darkslategrey" />*@
+    <meta name="theme-color" content="darkslategrey" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="  https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/css/multi-select.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.7/angular-filter.js">
+    </script>
+    <style>
+        .indexcon {
+            background: url('../../Images/michael-longmire-lhltMGdohc8-unsplash.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            min-height: 670px;
+        }
+
+        @@media( min-width : 0px) and (max-width : 500px) {
+            /*.webFooter
+            {
+
+                display:none;
+            }
+            .mobileFooter
+            {
+
+                display:inline-block;
+            }*/
+            .card {
+                overflow: auto;
+            }
+
+            .expenseTbl {
+                table-layout: fixed;
+                /*border:1px solid black;*/
+            }
+
+            .card1Mobile {
+                display: block;
+            }
+
+            .card1Web {
+                display: none;
+            }
+        }
+
+        @@media( min-width : 500px) {
+
+            .card {
+                overflow: auto;
+            }
+
+            .expenseTbl {
+                table-layout: fixed;
+                /*border:1px solid black;*/
+            }
+
+            .card1Mobile {
+                display: none;
+            }
+
+            .card1Web {
+                display: block;
+            }
+            /*.webFooter {
+                display: block;
+            }
+
+            .mobileFooter {
+                display: none;
+            }*/
+        }
+
+        .expenseTbl {
+            margin: 0;
+            margin-left: 5PX;
+            /*border:1px solid black;*/
+        }
+
+            .expenseTbl th {
+                padding: 2px;
+                background-color: white;
+                border-bottom: 1px solid black;
+                font-size: 12px;
+                margin: 0;
+                border-left: 1px solid #ddd;
+            }
+
+            .expenseTbl td {
+                border-bottom: 1px solid #ddd;
+                /*border: 1px solid green;*/
+            }
+
+        .card {
+            box-shadow: 0 4px 8px 0 aqua;
+            transition: 0.3s;
+            border-radius: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            /*border: 1px solid #00563B;*/
+        }
+
+
+        .card1 {
+            box-shadow: 0 4px 4px 0 aqua;
+            transition: 0.3s;
+            border-radius: 8px;
+            margin-top: 20px;
+            /*border:1px solid black;*/
+            margin-bottom: 10px;
+        }
+
+        .txtList {
+            border: none;
+            background-color: white;
+            font-family: Azeret Mono;
+            /*font-family:'Matura MT Script Capitals';*/
+            width: 78px;
+            border-left: 1px solid #ddd;
+            margin-left: 0;
+            /*font-weight: bold;*/
+        }
+
+        .txtListLg {
+            width: 150px;
+            font-family: Consolas;
+        }
+
+        .txtListsm {
+            width: 55px;
+            font-family: Consolas;
+        }
+
+        .button {
+            border: none;
+            /*color: white;*/
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            height: 30px;
+        }
+
+
+        .date {
+            /*border-radius:5px;*/
+            background-color: orange;
+            font-weight: bold;
+        }
+
+        .CardHead {
+            background-color: whitesmoke;
+        }
+
+        .head {
+            /*background-image: url(../Images/michael-longmire-lhltMGdohc8-unsplash.jpg);
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center center;*/
+            background-color: black;
+            color: whitesmoke;
+        }
+        /*moved styles*/
+
+        @@keyframes myfirst {
+            0% {
+                color: green;
+                left: 0px;
+            }
+
+            50% {
+                color: black;
+                right: 0px;
+            }
+
+            100% {
+                color: green;
+                left: 0px;
+            }
+        }
+
+        .sumrow {
+            padding-left: 25px;
+        }
+
+        .sumrowval {
+            padding-left: 2px;
+            font-weight: bold;
+        }
+
+        .button {
+            border-radius: 5px;
+            color: white;
+        }
+
+        .card h4 {
+            padding-left: 12px;
+            color: black;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            background-color: white;
+            border-radius: 8px 8px 0px 0px;
+            margin-bottom: 2px;
+        }
+
+        .form__group {
+            position: relative;
+            margin-top: 10px;
+            height: 30px;
+        }
+
+        .form__field {
+            right: 0px;
+            position: absolute;
+            top: 0px;
+            width: 60%;
+            height: 100%;
+            text-align: left;
+            margin-bottom: 2px;
+        }
+
+        .form__label {
+            display: block;
+            transition: 0.2s;
+            font-size: 1rem;
+            width: 50%;
+            position: absolute;
+            bottom: -12px;
+            text-align: left;
+            word-break: break-word;
+        }
+
+        .form__field_input {
+            font-family: inherit;
+            width: 100%;
+            border: none;
+            /*border-bottom: 1px solid #ddd;*/
+            outline: 0;
+            font-size: 1.3rem;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+            background-color: white;
+        }
+
+        .form__group_footer {
+            margin-top: 10px;
+            height: 30px;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0;
+            width: 50%;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #4B0082;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            border-radius: 4px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: white;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        @@media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+
+</head>
+<body style="">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/Home/Index">Home</a>
+        <a href="/Home/ViewExpenseGraph">Graph</a>
+        <a href="/Home/about">About</a>
+        <a href="/Home/Services">Services</a>
+
+        <a href="/Home/Contact">Contact</a>
+        <a href="/home/logout">Logout</a>
+    </div>
+
+    @*<a>#1FB393</a>*@
+    <div class="container-fluid " style="background-color:darkslategrey;height:70px;font-family:Consolas;box-shadow:0px 2px grey;position:fixed;top:0;z-index:1">
+        <div class="row" style="">
+            <div class="col-md-2 col-2" id="navdid"><span style="font-size:30px;cursor:pointer;color:aquamarine" onclick="openNav()">&#9776;</span></div>
+            <div class="col-md-6 col col-6">
+                <h6 style="color:white;text-align:left;bottom:0px;margin-top:10px"><span style="font-family:Consolas">Daily Expense Manager</span></h6>
+            </div>
+            <div class="col-md-4  col-4" style="padding-right:0"><h6 style="color:white;text-align:right;margin-top:10px;padding-right:0">Hello <span id="userName" style="color:white;text-align:right">@ViewBag.UserName</span></h6></div>
+        </div>
+
+    </div>
+    <input type="hidden" value="@ViewBag.UserId" id="userId">
+  
+
+
+    <div class="container" style="margin-top:70px;">
+
+
+
+        @RenderBody()
+
+
+    </div>
+    <div style="position:fixed;bottom:0px;right:0;width:30px;height:30px;display:none;margin-bottom:10px" id="scroltopId" onclick="initTop()">
+        <img src="~/Images/add-back-to-top-button-manually-wordpress.jpg" class="center" />
+
+    </div>
+
+
+
+
+</body>
+</html>
+<script src="~/scripts/Common.js"></script>

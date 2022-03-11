@@ -1,0 +1,405 @@
+var app = angular.module('myApp', ['angular.filter']);
+
+app.filter("jsDate", function () {
+    return function (x) {
+        return new Date(parseInt(x.substr(6)));
+    };
+});
+app.controller('myCtrl', function ($scope, $http) {
+    //variable declaration
+    var ItemTypeId;
+    var item;
+    $scope.item = '';
+    $scope.FromDate = new Date();
+    $scope.ToDate = new Date();
+    $scope.Totol = 0;
+    $scope.lblAlrt = '';
+    var LstOfExpensDetails = [];
+    $scope.LstOfExpensDetails = LstOfExpensDetails;
+    $scope.forMateDate = function (unformattedDate) {
+        var formattedDate = new Date(unformattedDate);
+        var d = formattedDate.getDate();
+        var m = formattedDate.getMonth();
+        m += 1;  // JavaScript months are 0-11
+        var y = formattedDate.getFullYear();
+        return d + "." + m + "." + y;
+
+    }
+    //end of variable declaration
+
+    //$('#AvailableItems').multiselect({
+    //    includeSelectAllOption: true
+    //});
+    //$("#AvailableItems").multiselect('selectAll', false);
+    $scope.SearchItemPost = function () {
+        $(".myTableHead").css('display', 'none');
+        $(".TransUL").empty();
+        console.log($("#AvailableItems").val());
+        var req = {
+            method: 'POST',
+            url: IndexJsUrl,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: { item: $scope.item, itemTypeIds: $('#AvailableItems').val(), fromDate: $scope.FromDate, Todate: $scope.ToDate }
+        }
+        $http(req).then(
+            function (response) {
+
+
+                if (response.status == 200) {
+                    $scope.LstOfExpensDetails = [];
+                    $scope.Totol = 0;
+                    $scope.LstOfExpensDetails = response.data;
+
+                    $.each(response.data, function (index, Element) {
+
+
+
+                        $(".TransUL").append('<div class="card"><li><h4 style="background-color:grey;padding-left:12px;color:white;font-size:14px">' + forMateDate(Element.Date) + '</h4><table id="expenseTbl_' + index + '" style="font-family:Consolas;font-size:14px" class="expenseTbl">' +
+                            '<thead style="font-weight:bold;font-size:14px;font-family:Consolas"><tr><th hidden class="TheadDate">Date</th><th>Particular</th><th>ItemType</th><th>UnitPrice</th><th>Quantity</th><th>Totol</th><th>Remarks</th><th>Actions</th></tr></thead></table></li>'
+
+                        );
+                        $.each(Element.Items, function (index1, Element1) {
+                            $("#expenseTbl_" + index).append('<tr class="listInput_' + Element1.EntryId + '"><td hidden class="tdDate"> <input type="text" value="' + forMateDate(Element1.Date) + '" name="datefield" class="txtList" disabled/></td>' +
+                                '<td> <input type="text" value="' + Element1.Particular + '" class="txtList txtList_' + Element1.EntryId + '" name="particular" disabled/></td>' +
+                                '<td> <input type="text" name="itemType" value="' + Element1.ItemType + '"  class="txtList txtList_' + Element1.EntryId + '" disabled/></td>' +
+                                '<td>  <input type="text" value="' + Element1.UnitPrice + '" name="unitprice" class="txtList txtList_' + Element1.EntryId + '" disabled/></td>' +
+                                '<td> <input type="text" value="' + Element1.Quantity + '" name="quantity" class="txtList txtList_' + Element1.EntryId + '" disabled/></td>' +
+                                '<td><input type="text" value="' + Element1.Totol + '"class="txtList txtList_' + Element1.EntryId + '" name="total" disabled /></td>' +
+                                '<td><input type="text" value="' + Element1.Remarks + '" class="txtList txtList_' + Element1.EntryId + '" name="remarks" disabled/></td>' +
+                                '<td><input type="button" onclick="edit(' + Element1.EntryId + ')" value="Edit" id="btnEdit_' + Element1.EntryId + '" style="border:0;border-bottom: 2px solid #989898;width:70px" name="edit" /></td></tr>'
+                            )
+
+                        })
+                        $(".TransUL").append('<div class="row"><div class="col-2">Total</div><div class="col-1">' + Element.Sum + '</div></div></div>')
+
+
+
+                    })
+
+                    $("#grndTtlhead").css('display', 'blcok');
+
+
+                    document.getElementById("grndttl").innerHTML = response.data[0].GrandTotol;
+                }
+            
+                else {
+                    $("#SearchMessage").text("Somthing went wrong!");
+                    $("#SearchMessage").show();
+                    
+                }
+
+
+            }, function (error) {
+
+                $("#SearchMessage").text ( "Somthing went wrong!");
+                $("#SearchMessage").show();
+
+            });
+
+    }
+    $scope.CreateTransaction = function () {
+ 
+        var req = {
+            method: 'POST',
+            url: CreateUrl,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: {
+                EntryId: $scope.Entryid, Date: $('#dateid').val(), Particular: $scope.particular, Quantity: $('#quantity').val(),
+                UnitPrice: $scope.unitPrice, Totol: $scope.total, Remarks: $scope.Remarks, ItemTypeId: $('#itemType').val()
+            }
+        }
+        $http(req).then(
+            function (response) {
+                var msg = '';
+
+                if (response.status == 200) {
+                    msg = "Updated Successfully!";
+                    $("#BeforeCreation1").css('display', 'none');
+                    $("#AfterCreation1").css('display', 'block');
+                    $("#btnClrAndAdd").css('display', 'none');
+                }
+                else if (response.status == 201) {
+
+                 
+
+                    msg = "Added Successfully!";
+                    
+                    $("#btnClrAndAdd").val('Clear and add new');
+                }
+                else {
+                    msg = 'Somthing went wrong!';
+                    $("#btnClrAndAdd").prop('value', 'Retry');
+                }
+               
+              
+                $("#BeforeCreation1").css('display', 'none');
+                $("#AfterCreation1").css('display', 'block');
+             //   $("#msgbox").css('background-color', 'green');
+                $("#msgbox").text(msg);
+                $('#msgbox').delay(3000).fadeOut('slow');
+                
+                //setTimeout(function () {
+                //    document.getElementById('msgbox').className = 'waa';
+                //}, 2500);
+               
+
+            }, function (error) {
+                $("#btnClrAndAdd").val('Retry');
+                msg = 'Somthing went wrong!';
+                $("#BeforeCreation1").css('display','none');
+                $("#AfterCreation1").css('display', 'block');
+              //  $("#msgbox").css('background-color', 'green');
+             //   $("#msgbox").text(msg);
+             //   $("#msgbox").css('color', 'white');
+               
+            });
+
+        //   $('#AlterBox').modal('show');
+    }
+    $scope.GetCurrentDetails = function () {
+        console.log($("#AvailableItems").val());
+        var req = {
+            method: 'GET',
+            url: CurrentDetailsUrl,
+        }
+        $http(req).then(
+            function (response) {
+                if (response.status == 200) {
+                    $('#expectedIncome').html(response.data.ExpectedIncome);
+                    $('#currentIncome').html(response.data.CurrentIncome);
+
+                    var incomeLeft = response.data.ExpectedIncome - response.data.CurrentIncome;
+                    $('#incomeLeft').html(incomeLeft);
+
+                    $('#expectedExpense').html(response.data.ExpectedExpense);
+                    $('#currentExpense').html(response.data.CurrentExpenses);
+
+                    var expenseLeft = response.data.ExpectedExpense - response.data.CurrentExpenses;
+                    $('#expenseLeft').html(expenseLeft);
+                    var savings = response.data.CurrentIncome - response.data.CurrentExpenses;
+                    $('#savings').html(savings);
+                }
+                else {
+
+                    $("#CurrentDetailsErr").text ("Somthing went wrong!");
+                    $("#CurrentDetailsErr").show();
+                }
+            }, function (error) {
+
+                $("#CurrentDetailsErr").text("Somthing went wrong!");
+                $("#CurrentDetailsErr").show();
+                
+            });
+
+    }
+    $scope.Clear = function () {
+        if ($("#btnClrAndAdd").val() == 'Retry') {
+            $scope.CreateTransaction();
+        }
+        else {
+            $("#AfterCreation1").css('display', 'none');
+            $("#BeforeCreation1").css('display', 'block');
+            $scope.particular = '';
+            $scope.unitPrice = ''; $scope.total = ''; $scope.Remarks = '';
+            $("#quantity").val(1);
+            $("#itemType").val(1);
+        }
+
+    }
+    $scope.SearchItemPost();
+    $scope.GetCurrentDetails();
+
+    CalculateTotol = function () {
+ 
+        if ($scope.unitPrice != NaN || $scope.unitPrice != undefined) {
+            $scope.total = $scope.unitPrice * $("#quantity").val();
+            $("#totalJq").val($scope.total);
+        }
+    }
+
+    $scope.forMateDateAg = function (unformattedDate) {
+       
+        var formattedDate = new Date(unformattedDate);
+        var d = formattedDate.getDate();
+        var m = formattedDate.getMonth();
+        m += 1;  // JavaScript months are 0-11
+        var y = formattedDate.getFullYear();
+        return d + "." + m + "." + y;
+
+    }
+    $scope.edit = function (EntryId) {
+       
+        console.log('hello');
+        console.log($(this).attr('id'));
+        if ($(this).val == 'update') {
+
+            $scope.Entryid = EntryId;
+            var arr = [];
+            arr = $(".listInput_" + EntryId).find('input, select');
+            $scope.particular = arr[2];
+            $(".listInput_" + EntryId).find('input, select').each(function () {
+
+                if ($(this).attr('name') == 'datefield') {
+                    $("#dateid").val($(this).val());
+                }
+                else if ($(this).attr('name') == 'particular') {
+                    $scope.particular = $(this).val();
+                }
+                else if ($(this).attr('itemtype')) {
+                    $('#itemType').val($(this).val());
+                }
+                else if ($(this).attr('name') == 'unitprice') {
+                    $scope.UnitPrice = $(this).val();
+                }
+                else if ($(this).attr('name') == 'quantity') {
+                    $('#quantity').val($(this).val());
+                }
+                else if ($(this).attr('name') == 'total') {
+                    $scope.Totol = $(this).val();
+                }
+                else {
+                    $scope.Remarks = $(this).val();
+
+                }
+                var res = $scope.CreateTransaction();
+                if (res == 1) {
+                    alert('Updated');
+                    ('.txtList_' + EntryId).prop('disabled', true);
+                }
+
+
+            });
+        }
+        else {
+            $(".listInput_" + EntryId).find('input, select').each(function () {
+                $(this).prop('disabled', false);
+
+                $(this).css({ 'border': 0, 'border-left': '2px solid #989898' });
+                if ($(this).attr('name') == 'datefield') {
+                    
+                    var dat = $(this).val();
+                    var par = $(this).parent();
+                    $(this).parent().empty();
+                    //par.prop('hidden',false);
+                    par.append('<input type="date" name="Date" id="dateid_' + EntryId + '"/>');
+                    $(".tdDate").prop('hidden', false);
+                    //par.append(' <input type="text" name="itemType" class="txtList"/>');
+                    $("#dateid_" + EntryId).val(dat);
+                    //$("#dateid").val(dat);
+                    $(".TheadDate").prop('hidden', false);
+                }
+
+                if ($(this).attr('name') == 'edit') {
+                    $("#btnEdit_" + EntryId).val('Update');
+
+                    $(this).css({ 'background-color': 'MediumSeaGreen', 'color': 'white', 'border-bottom': '2px solid #007bff' });
+                }
+                if ($(this).attr('name') == 'itemType') {
+                    var type = $(this).val();
+                    var par = $(this).parent();
+                    $(this).parent().empty();
+                    par.append('<select name="itemType" id="itemType" style="font-family:Consolas">' +
+                        '<option value=1>Food</option>' +
+                        '<option value=2>Shopping</option>' +
+                        '<option value=3>Online Food</option>' +
+                        '<option value=4>Bill</option>' +
+                        '<option value=5>Travel</option>' +
+                        '<option value=7>Other</option>' +
+                        '</select>');
+                }
+                $("#itemType").val(type);
+
+            });
+        }
+    };
+
+    edit = function (EntryId) {
+       
+        console.log('hello');
+        console.log($(this).attr('id'));
+        if ($(this).val == 'update') {
+
+            $scope.Entryid = EntryId;
+            var arr = [];
+            arr = $(".listInput_" + EntryId).find('input, select');
+            $scope.particular = arr[2];
+            $(".listInput_" + EntryId).find('input, select').each(function () {
+
+                if ($(this).attr('name') == 'datefield') {
+                    $("#dateid").val($(this).val());
+                }
+                else if ($(this).attr('name') == 'particular') {
+                    $scope.particular = $(this).val();
+                }
+                else if ($(this).attr('itemtype')) {
+                    $('#itemType').val($(this).val());
+                }
+                else if ($(this).attr('name') == 'unitprice') {
+                    $scope.UnitPrice = $(this).val();
+                }
+                else if ($(this).attr('name') == 'quantity') {
+                    $('#quantity').val($(this).val());
+                }
+                else if ($(this).attr('name') == 'total') {
+                    $scope.Totol = $(this).val();
+                }
+                else {
+                    $scope.Remarks = $(this).val();
+
+                }
+                var res = $scope.CreateTransaction();
+                if (res == 1) {
+                    alert('Updated');
+                    ('.txtList_' + EntryId).prop('disabled', true);
+                }
+
+
+            });
+        }
+        else {
+            $(".listInput_" + EntryId).find('input, select').each(function () {
+                $(this).prop('disabled', false);
+
+                $(this).css({ 'border': 0, 'border-left': '2px solid #989898' });
+                if ($(this).attr('name') == 'datefield') {
+
+                    var dat = $(this).val();
+                    var par = $(this).parent();
+                    $(this).parent().empty();
+                    //par.prop('hidden',false);
+                    par.append('<input type="date" name="Date" id="dateid_' + EntryId + '"/>');
+                    $(".tdDate").prop('hidden', false);
+                    //par.append(' <input type="text" name="itemType" class="txtList"/>');
+                    $("#dateid_" + EntryId).val(dat);
+                    //$("#dateid").val(dat);
+                    $(".TheadDate").prop('hidden', false);
+                }
+
+                if ($(this).attr('name') == 'edit') {
+                    $("#btnEdit_" + EntryId).val('Update');
+
+                    $(this).css({ 'background-color': 'MediumSeaGreen', 'color': 'white', 'border-bottom': '2px solid #007bff' });
+                }
+                if ($(this).attr('name') == 'itemType') {
+                    var type = $(this).val();
+                    var par = $(this).parent();
+                    $(this).parent().empty();
+                    par.append('<select name="itemType" id="itemType" style="font-family:Consolas">' +
+                        '<option value=1>Food</option>' +
+                        '<option value=2>Shopping</option>' +
+                        '<option value=3>Online Food</option>' +
+                        '<option value=4>Bill</option>' +
+                        '<option value=5>Travel</option>' +
+                        '<option value=7>Other</option>' +
+                        '</select>');
+                }
+                $("#itemType").val(type);
+
+            });
+        }
+    };
+});

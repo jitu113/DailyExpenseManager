@@ -1,0 +1,80 @@
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\DataAccessLayer\bin\Debug\BusinessObject.dll
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\DataAccessLayer\bin\Debug\BusinessObject.pdb
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Jaque\Documents\Visual Studio 2015\Projects\ExpenseApiEF\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+E:\Source Code\ExpenseApi\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+E:\Source Code\ExpenseApi\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+E:\Source Code\ExpenseApi\DataAccessLayer\bin\Debug\BusinessObject.dll
+E:\Source Code\ExpenseApi\DataAccessLayer\bin\Debug\BusinessObject.pdb
+E:\Source Code\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+E:\Source Code\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+E:\Source Code\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+E:\Source Code\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+E:\Source Code\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\BusinessObject.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\BusinessObject.pdb
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\BouncyCastle.Crypto.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\Google.Protobuf.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\K4os.Hash.xxHash.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Buffers.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Data.Common.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Memory.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Numerics.Vectors.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\Ubiety.Dns.Core.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\ZstdNet.dll
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\Google.Protobuf.pdb
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\Google.Protobuf.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\K4os.Hash.xxHash.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\MySql.Data.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Buffers.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Memory.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Numerics.Vectors.xml
+C:\My Files\SourceCode\ExpenseApi\DataAccessLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\BouncyCastle.Crypto.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\BusinessObject.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\Google.Protobuf.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\K4os.Hash.xxHash.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Buffers.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Data.Common.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Memory.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Numerics.Vectors.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\Ubiety.Dns.Core.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\ZstdNet.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\BusinessObject.pdb
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\Google.Protobuf.pdb
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\Google.Protobuf.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\K4os.Hash.xxHash.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\MySql.Data.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Buffers.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Memory.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Numerics.Vectors.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\My Files\SourceCode\ResponsiveDesign\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
