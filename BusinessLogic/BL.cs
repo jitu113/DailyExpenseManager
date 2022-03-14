@@ -157,11 +157,11 @@ namespace BusinessLogic
            
             return ro;
         }
-        public  ReturnObject<bool> DeleteItem(long id,int userId)
+        public  ReturnObject<bool> DeleteItem(string id,string userId)
         {
             ReturnObject<bool> ro = new ReturnObject<bool>();
             
-                var data = DALMySql.DeleteItem(id, userId);
+                var data = DALMySql.DeleteItem(Convert.ToInt64(id),Convert.ToInt32( userId));
                 ro.Response = data>0?true:false;
                 if (ro.Response)
                 { 

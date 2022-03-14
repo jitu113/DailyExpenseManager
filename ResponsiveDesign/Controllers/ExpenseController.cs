@@ -26,7 +26,7 @@ namespace ResponsiveDesign.Controllers
         [HttpPost]
         public JsonResult GetExpenseDetails(SearchData searchData)
         {
-            searchData.fromDate = DateTime.Now.AddDays(-5);
+           
             ReturnObject<DetailsInfo> ro = new BL().GetExpenseDetails(searchData.fromDate, searchData.toDate, searchData.ItemTypeId, searchData.item, searchData.UserId);
             if(ro.StatusCode== HttpStatusCode.OK)
             {
@@ -45,10 +45,10 @@ namespace ResponsiveDesign.Controllers
             
         }
         [HttpGet]
-        public JsonResult DeleteItem(long id,int userId)
+        public JsonResult DeleteItem(string id, string userId)
         {
             ReturnObject<bool> ro = new BL().DeleteItem(id, userId);
-            return Json(new { status = ro.StatusCode, response = ro.Response });
+            return Json(new { status = ro.StatusCode, response = ro.Response },JsonRequestBehavior.AllowGet);
 
         }
         public ActionResult CreateBudget()
@@ -56,12 +56,7 @@ namespace ResponsiveDesign.Controllers
 
             return View();
         }
-        [HttpGet]
-        public string TestUrl(long id)
-        {
-            return "Hello dear";
-
-        }
+       
 
     }
 }
