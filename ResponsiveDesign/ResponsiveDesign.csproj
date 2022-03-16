@@ -171,6 +171,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Expense\CreateBudget.cshtml" />
     <Content Include="Views\Home\ViewExpenseGraph.cshtml" />
+    <Content Include="Views\Expense\CreateItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

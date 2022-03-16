@@ -17,7 +17,17 @@ app.controller('myCtrl', function ($scope, $http) {
     $scope.lblAlrt = '';
     var LstOfExpensDetails = [];
     $scope.LstOfExpensDetails = LstOfExpensDetails;
- 
+    $(".close").click(function () {
+        $("#myModal").css('display', 'none');
+    });
+    $(".create").click(function () {
+        $("#myModal").css('display', 'block');
+        $("#dateid").val(GetCurrentDate());
+        $("#quantity").val(1);
+    })
+    //span.onclick = function () {
+    //    modal.style.display = "none";
+    //}
     $scope.SearchItemPost = function (isInitialLoad) {
         $(".myTableHead").css('display', 'none');
         $('#SearchModal').modal('hide');
@@ -113,8 +123,6 @@ app.controller('myCtrl', function ($scope, $http) {
                 $('#DeleteMsg').text('Delted Succsessfully');
                 $('#btnDeleteOk').text('Ok');
                 $('#btnDeleteOk').off('click').on('click', function () { $('#DeleteModal').modal('hide'); })
-               // $('#btnDeleteOk').removeAttr('onclick');
-               // $('#btnDeleteOk').on('click', function () { $('#DeleteModal').modal('hide'); })
             },
             error: function (data) {
 
@@ -127,9 +135,7 @@ app.controller('myCtrl', function ($scope, $http) {
        
     showDelte = function (EntryId) {
         $('#DeleteMsg').text('Are you sure you want to delete');
-        $('#btnDeleteOk').off('click').on('click', deleteFun)
-        //$('#btnDeleteOk').unbind('click',);
-        //$("#btnDeleteOk").click(deleteFun);
+        $('#btnDeleteOk').off('click').on('click', deleteFun);
         $scope.EntryId = EntryId;
         $('#DeleteModal').modal('show');
     }

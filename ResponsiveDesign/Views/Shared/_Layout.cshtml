@@ -35,15 +35,15 @@
             .card {
                 overflow: auto;
             }
-
-           
-
             .card1Mobile {
                 display: block;
             }
 
             .card1Web {
                 display: none;
+            }
+            .modal-content {
+                width: 80%;
             }
         }
 
@@ -59,7 +59,9 @@
             .card1Web {
                 display: block;
             }
-           
+            .modal-content {
+                width: 40%;
+            }
         }
         .card {
       
@@ -69,27 +71,6 @@
             margin-bottom: 10px;
            
         }
-        .txtList {
-            border: none;
-            background-color: white;
-            font-family: Azeret Mono;
-            /*font-family:'Matura MT Script Capitals';*/
-            width: 78px;
-            border-left: 1px solid #ddd;
-            margin-left: 0;
-            /*font-weight: bold;*/
-        }
-
-        .txtListLg {
-            width: 150px;
-            font-family: Consolas;
-        }
-
-        .txtListsm {
-            width: 55px;
-            font-family: Consolas;
-        }
-
         .button {
             border: none;
             /*color: white;*/
@@ -260,17 +241,7 @@
         }
         .styled-table {
             border:1px solid black;
-          /*  border-collapse: collapse;*/
-            /*margin: 15px 0;
-            font-size: 0.9em;
-            font-family: sans-serif;
-            min-width: 200px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);*/
-          /*  position: relative;*/
-            /*top: 5px;
-            padding-right: 5px;
-            border-radius: 5px 5px 0 0;*/
-          
+            border-right:none;
         }
 
             .styled-table thead tr {
@@ -307,7 +278,49 @@
                     color: #009879;
                     
                 }
-                
+        .modal-style {
+            z-index: 1;
+            position: fixed;
+            display: none;
+            left: 0;
+            top: 0;
+            border: 1px solid green;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            top: 90px;
+            border: 1px solid #888;
+            border-radius:5px;
+          
+            /* height:70%;*/
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .mymodal-header
+        {
+
+            height:70px;
+        }
     </style>
 
 </head>
