@@ -17,7 +17,17 @@ app.controller('myCtrl', function ($scope, $http) {
     $scope.lblAlrt = '';
     var LstOfExpensDetails = [];
     $scope.LstOfExpensDetails = LstOfExpensDetails;
- 
+    $(".close").click(function () {
+        $("#myModal").css('display', 'none');
+    });
+    $(".create").click(function () {
+        $("#myModal").css('display', 'block');
+        $("#dateid").val(GetCurrentDate());
+        $("#quantity").val(1);
+    })
+    //span.onclick = function () {
+    //    modal.style.display = "none";
+    //}
     $scope.SearchItemPost = function (isInitialLoad) {
         $(".myTableHead").css('display', 'none');
         $('#SearchModal').modal('hide');
@@ -39,27 +49,32 @@ app.controller('myCtrl', function ($scope, $http) {
                     $scope.LstOfExpensDetails = response.data;
 
                     $.each(response.data.lstExpenseDtls, function (index, Element) {
-                        $(".myTableContainer").append('<div class="card a" id="div_' + index + '"><h4 style=""><span class="CardHead">' + forMateDate(Element.Date) + '</span></h4><table id="expenseTbl_' + index + '" style="" class="expenseTbl">' +
-                            '<thead"><tr><th  class="TheadDate" hidden="hidden">Date</th><th style="">Description</th><th>UnitPrice</th><th>Quantity</th><th>Totol</th><th>ItemType</th><th>Actions</th><th style="border-left:none"></th></tr></thead></table></div>'
+                        $(".myTableContainer").append('<div class="card a" id="div_' + index + '"><h4 style=""><span class="CardHead">' + forMateDate(Element.Date) + '</span></h4><table id="expenseTbl_' + index + '" style="" class="styled-table">' +
+                            '<thead"><tr style="background-color:#009879"><th  class="TheadDate" hidden="hidden">Date</th><th>Item&nbsp&nbsp&nbsp</th><th>Price</th><th>#</th><th>Totol</th><th>Description&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th><th>Actions</th><th style="border-left:none"></th></tr></thead></table></div>'
+                           /* '<thead"><tr style="background-color:#009879"><th  class="TheadDate" hidden="hidden">Date</th><th  style="width:50px">ItemType</th><th style="width:30px">Price</th><th style="width:20px">#</th><th style="width:50px">Totol</th><th style="width:100px">Description</th><th style="width:20px">Actions</th><th style="border-left:none"></th></tr></thead></table></div>'*/
 
                         );
                         $.each(Element.Items, function (index1, Element1) {
-                            $("#expenseTbl_" + index).append('<tr class="listInput_' + Element1.EntryId + '"><td hidden="hidden" class="tdDate"> <input type="text" value="' + forMateDate(Element1.Date) + '" name="datefield" class="txtList txtListLg" disabled/></td>' +
-                                '<td> <input type="text" value="' + Element1.Particular + '" class="txtList txtListLg  txtList_' + Element1.EntryId + '" name="particular" style="border:none" disabled/></td>' +
-                                '<td>  <input type="text" value="' + Element1.UnitPrice + '" name="unitprice" class="txtList txtListsm  txtList_' + Element1.EntryId + '" disabled/></td>' +
-                                '<td> <input type="text" value="' + Element1.Quantity + '" name="quantity" class="txtList txtListsm txtList_' + Element1.EntryId + '" disabled/></td>' +
-                                '<td><input type="text" value="' + Element1.Totol + '"class="txtList txtList_' + Element1.EntryId + '" name="total" disabled /></td>' +
-                                '<td> <input type="text" name="itemType" value="' + Element1.ItemType + '"  class="txtList  txtList_' + Element1.EntryId + '" disabled/></td>' +
-                                '<td style="border-left:1px solid #ddd"><input type="button" onclick="edit(' + Element1.EntryId + ')" value="Edit" id="btnEdit_' + Element1.EntryId + '" style="background-color:MediumSeaGreen;width:60px;right:2px" name="edit" class="button"/></td>' +
-                                 '<td><input type="button" onclick="showDelte(' + Element1.EntryId + ')" value="Delete" id="btnDelete_' + Element1.EntryId + '" style="background-color:red;width:60px;" name="delete" class="button" /></td ></tr >' 
+                            $("#expenseTbl_" + index).append('<tr class="listInput_' + Element1.EntryId + '">'+
+                                '<td> ' + Element1.ItemType + '</td>' +
+                                
+                                '<td>'  + Element1.UnitPrice + '</td>' +
+                                '<td>' + Element1.Quantity + '</td>' +
+                                '<td>' + Element1.Totol + '</td>' +
+                                '<td>' + Element1.Particular + '</td>' +
+                                '<td style="border-left:1px solid #ddd;"><input type="button" onclick="edit(' + Element1.EntryId + ')" value="Edit" id="btnEdit_' + Element1.EntryId + '" style="background-color:MediumSeaGreen;width:60px;right:2px" name="edit" class="button"/></td>'+
+                                '<td><input type="button" onclick = "showDelte(' + Element1.EntryId + ')" value = "Delete" id = "btnDelete_' + Element1.EntryId + '" style = "background-color:red;width:60px;" name = "delete" class= "button" /></td>' +
+                                '</tr >'
                             )
 
                         })
                         $("#div_" + index).append('<div class="row"><div class="col-3 col-md-2 sumrow" >Total</div><div class="col-2 col-md-1 sumrowval">' + Element.Sum + '</div></div>')
 
-
+                        
 
                     })
+
+
                     if (response.data.lstExpenseDtls.length > 0) {
                     
                         $("#resultDiv").css('display', 'none');
@@ -100,36 +115,26 @@ app.controller('myCtrl', function ($scope, $http) {
     }
     deleteFun = function () {
 
-        var req = {
-            method: 'POST',
-            
-            url: DeleteUrl + '?id=' + $scope.EntryId + "&userid=" + $("#userId").val(),
-        }
-        $http(req).then(
-            function (response) {
-                if (response.data.status == 200) {
-                    $scope.EntryId = 0;
-                    $('#DeleteMsg').text('Delted Succsessfully');
-                    $('#btnDeleteOk').val('Ok');
-                    $('#btnDeleteOk').removeAttr('onclick');
-                    $('#btnDeleteOk').on('click', function () { $('#DeleteModal').modal('hide'); })
-                }
-                else {
-                    $('#DeleteMsg').text('Unable to delete item.Please Retry!');
-                   
-                }
-            }, function (error) {
+        $.ajax({
+            url: DeleteUrl + '?userid=' + $("#userId").val() + "&&id=" + $scope.EntryId  ,
+            success: function (data) {
+                $scope.EntryId = 0;
+                $('#DeleteMsg').text('Delted Succsessfully');
+                $('#btnDeleteOk').text('Ok');
+                $('#btnDeleteOk').off('click').on('click', function () { $('#DeleteModal').modal('hide'); })
+            },
+            error: function (data) {
+
                 $('#DeleteMsg').text('Sorry something went wrong.Please Retry!');
-               
+            }
+        }
 
-            });
-
+        )
     }
+       
     showDelte = function (EntryId) {
         $('#DeleteMsg').text('Are you sure you want to delete');
-        $('#btnDeleteOk').off('click').on('click', deleteFun)
-        //$('#btnDeleteOk').unbind('click',);
-        //$("#btnDeleteOk").click(deleteFun);
+        $('#btnDeleteOk').off('click').on('click', deleteFun);
         $scope.EntryId = EntryId;
         $('#DeleteModal').modal('show');
     }
@@ -293,6 +298,34 @@ app.controller('myCtrl', function ($scope, $http) {
 
             clear();
         }
+
+    }
+    TestCall = function () {
+
+        var req = {
+            method: 'GET',
+
+            url: TestUrl + '?id=6'
+        }
+        $http(req).then(
+            function (response) {
+                if (response.data.status == 200) {
+                    $scope.EntryId = 0;
+                    $('#DeleteMsg').text('Delted Succsessfully');
+                    $('#btnDeleteOk').val('Ok');
+                    $('#btnDeleteOk').removeAttr('onclick');
+                    $('#btnDeleteOk').on('click', function () { $('#DeleteModal').modal('hide'); })
+                }
+                else {
+                    $('#DeleteMsg').text('Unable to delete item.Please Retry!');
+
+                }
+            }, function (error) {
+                $('#DeleteMsg').text('Sorry something went wrong.Please Retry!');
+
+
+            });
+
 
     }
     clear = function () {

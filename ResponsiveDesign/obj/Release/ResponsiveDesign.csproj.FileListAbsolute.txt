@@ -116,4 +116,3 @@ C:\My Files\SourceCode\ResponsiveDesign\ResponsiveDesign\bin\Google.Protobuf.xml
 C:\My Files\SourceCode\ResponsiveDesign\ResponsiveDesign\bin\K4os.Compression.LZ4.Streams.xml
 C:\My Files\SourceCode\ResponsiveDesign\ResponsiveDesign\bin\K4os.Compression.LZ4.xml
 C:\My Files\SourceCode\ResponsiveDesign\ResponsiveDesign\bin\K4os.Hash.xxHash.xml
-C:\My Files\SourceCode\ResponsiveDesign\ResponsiveDesign\obj\Release\ResponsiveDesign.csproj.CopyComplete

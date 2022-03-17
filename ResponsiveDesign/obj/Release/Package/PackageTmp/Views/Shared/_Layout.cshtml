@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @*<meta name="theme-color" content="darkslategrey" />*@
-    <meta name="theme-color" content="darkslategrey" />
+    <meta name="theme-color" content="black"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -25,48 +26,32 @@
             background-repeat: no-repeat;
             background-position: center center;
             min-height: 670px;
+         
+            
         }
 
         @@media( min-width : 0px) and (max-width : 500px) {
-            /*.webFooter
-            {
-
-                display:none;
-            }
-            .mobileFooter
-            {
-
-                display:inline-block;
-            }*/
+           
             .card {
                 overflow: auto;
             }
-
-            .expenseTbl {
-                table-layout: fixed;
-                /*border:1px solid black;*/
-            }
-
             .card1Mobile {
                 display: block;
             }
 
             .card1Web {
                 display: none;
+            }
+            .modal-content {
+                width: 90%;
             }
         }
 
         @@media( min-width : 500px) {
 
             .card {
-                overflow: auto;
+                overflow: hidden;
             }
-
-            .expenseTbl {
-                table-layout: fixed;
-                /*border:1px solid black;*/
-            }
-
             .card1Mobile {
                 display: none;
             }
@@ -74,75 +59,18 @@
             .card1Web {
                 display: block;
             }
-            /*.webFooter {
-                display: block;
+            .modal-content {
+                width: 40%;
             }
-
-            .mobileFooter {
-                display: none;
-            }*/
         }
-
-        .expenseTbl {
-            margin: 0;
-            margin-left: 5PX;
-            /*border:1px solid black;*/
-        }
-
-            .expenseTbl th {
-                padding: 2px;
-                background-color: white;
-                border-bottom: 1px solid black;
-                font-size: 12px;
-                margin: 0;
-                border-left: 1px solid #ddd;
-            }
-
-            .expenseTbl td {
-                border-bottom: 1px solid #ddd;
-                /*border: 1px solid green;*/
-            }
-
         .card {
-            box-shadow: 0 4px 8px 0 aqua;
+      
             transition: 0.3s;
             border-radius: 8px;
             margin-top: 5px;
             margin-bottom: 10px;
-            /*border: 1px solid #00563B;*/
+           
         }
-
-
-        .card1 {
-            box-shadow: 0 4px 4px 0 aqua;
-            transition: 0.3s;
-            border-radius: 8px;
-            margin-top: 20px;
-            /*border:1px solid black;*/
-            margin-bottom: 10px;
-        }
-
-        .txtList {
-            border: none;
-            background-color: white;
-            font-family: Azeret Mono;
-            /*font-family:'Matura MT Script Capitals';*/
-            width: 78px;
-            border-left: 1px solid #ddd;
-            margin-left: 0;
-            /*font-weight: bold;*/
-        }
-
-        .txtListLg {
-            width: 150px;
-            font-family: Consolas;
-        }
-
-        .txtListsm {
-            width: 55px;
-            font-family: Consolas;
-        }
-
         .button {
             border: none;
             /*color: white;*/
@@ -311,6 +239,92 @@
                     font-size: 18px;
                 }
         }
+        .styled-table {
+            border:1px solid black;
+            border-right:none;
+        }
+
+            .styled-table thead tr {
+             /*   background-color: pink;*/
+                color: #ffffff;
+                text-align: left;
+            }
+
+            .styled-table th,
+            .styled-table td {
+                border-left: 1px solid #dddddd;
+                /* padding: 3px 3px;*/
+            }
+            .styled-table th
+           {
+               
+                 padding: 3px 3px;
+            }
+
+            .styled-table tbody tr {
+                border-bottom: 1px solid #dddddd;
+            }
+
+                .styled-table tbody tr:nth-of-type(even) {
+                    background-color: #f3f3f3;
+                }
+
+                .styled-table tbody tr:last-of-type {
+                    border-bottom: 2px solid #009879;
+                }
+
+                .styled-table tbody tr.active-row {
+                    font-weight: bold;
+                    color: #009879;
+                    
+                }
+        .modal-style {
+            z-index: 1;
+            position: fixed;
+            display: none;
+            left: 0;
+            top: 0;
+            border: 1px solid green;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+           /* padding: 20px;*/
+            top: 20px;
+            border: 1px solid #888;
+            border-radius:5px;
+          
+            /* height:70%;*/
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .mymodal-header
+        {
+
+            height:70px;
+        }
+        .form-control {
+            border: none;
+            border-bottom: 1px solid #dddddd;
+        }
     </style>
 
 </head>
@@ -318,9 +332,9 @@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/Home/Index">Home</a>
+        <a href="/home/Index">Home</a>
         <a href="/Home/ViewExpenseGraph">Graph</a>
-        <a href="/Home/about">About</a>
+        <a href="/home/about">About</a>
         <a href="/Home/Services">Services</a>
 
         <a href="/Home/Contact">Contact</a>
@@ -328,18 +342,18 @@
     </div>
 
     @*<a>#1FB393</a>*@
-    <div class="container-fluid " style="background-color:darkslategrey;height:70px;font-family:Consolas;box-shadow:0px 2px grey;position:fixed;top:0;z-index:1">
-        <div class="row" style="">
+    <div class="container-fluid " style="background-color: red; height: 90px; font-family: Consolas; box-shadow:3px 3px 3px 3px #88888888; position: fixed; top: 0; z-index: 1 ">
+        <div class="row" style="margin-top:25px">
             <div class="col-md-2 col-2" id="navdid"><span style="font-size:30px;cursor:pointer;color:aquamarine" onclick="openNav()">&#9776;</span></div>
             <div class="col-md-6 col col-6">
-                <h6 style="color:white;text-align:left;bottom:0px;margin-top:10px"><span style="font-family:Consolas">Daily Expense Manager</span></h6>
+                <h6 style="color:white;text-align:left;bottom:0px;margin-top:10px"><span style="font-family:'Cambria Math'">Daily Expense Manager</span></h6>
             </div>
             <div class="col-md-4  col-4" style="padding-right:0"><h6 style="color:white;text-align:right;margin-top:10px;padding-right:0">Hello <span id="userName" style="color:white;text-align:right">@ViewBag.UserName</span></h6></div>
         </div>
 
     </div>
     <input type="hidden" value="@ViewBag.UserId" id="userId">
-  
+
 
 
     <div class="container" style="margin-top:70px;">

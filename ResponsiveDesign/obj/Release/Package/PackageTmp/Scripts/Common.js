@@ -54,7 +54,6 @@ revertDate = function (formattedDate) {
 
 }
 GetCurrentDate = function () {
-    debugger;
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();

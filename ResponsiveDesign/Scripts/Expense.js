@@ -118,7 +118,6 @@ app.controller('myCtrl', function ($scope, $http) {
         $.ajax({
             url: DeleteUrl + '?userid=' + $("#userId").val() + "&&id=" + $scope.EntryId  ,
             success: function (data) {
-                debugger;
                 $scope.EntryId = 0;
                 $('#DeleteMsg').text('Delted Succsessfully');
                 $('#btnDeleteOk').text('Ok');

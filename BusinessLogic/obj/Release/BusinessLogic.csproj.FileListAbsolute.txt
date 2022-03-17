@@ -86,4 +86,3 @@ C:\My Files\SourceCode\ResponsiveDesign\BusinessLogic\obj\Release\BusinessLogic.
 C:\My Files\SourceCode\ResponsiveDesign\BusinessLogic\obj\Release\BusinessLogic.csproj.CoreCompileInputs.cache
 C:\My Files\SourceCode\ResponsiveDesign\BusinessLogic\obj\Release\BusinessLogic.dll
 C:\My Files\SourceCode\ResponsiveDesign\BusinessLogic\obj\Release\BusinessLogic.pdb
-C:\My Files\SourceCode\ResponsiveDesign\BusinessLogic\obj\Release\BusinessLogic.csproj.CopyComplete

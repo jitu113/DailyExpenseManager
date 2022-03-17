@@ -4,15 +4,17 @@
     ViewBag.Title = "ViewExpenseGraph";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <style>
+       
+    </style>
 
-<h2>ViewExpenseGraph</h2>
+</head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-     
+
+<table class="table styled-table">
+    <tr style="background-color: #009879">
+
         <th>
             @Html.DisplayNameFor(model => model.ItemType)
         </th>
@@ -25,42 +27,43 @@
         <th>
             @Html.DisplayNameFor(model => model.AmountLeft)
         </th>
-        <th></th>
+
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-   
-    <td>
-        @Html.DisplayFor(modelItem => item.ItemType)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Budget)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Expense)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AmountLeft)
-    </td>
+    @foreach (var item in Model)
+    {
+        <tr>
 
-</tr>
-}
-<tr>
-    <td>
-       <label>Total</label>
-    </td>
-   
-    <td>
-        <label>  @Model.Sum(x => x.Budget)</label>
-    </td>
-    <td>
-        <label>  @Model.Sum(x => x.Expense)</label>
-    </td>
-    <td>
-        <label> @(Model.Sum(x => x.Budget) - Model.Sum(x => x.Expense))</label>
-    </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expense)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountLeft)
+            </td>
 
-</tr>
+        </tr>
+    }
+    <tr>
+        <td>
+            <label>Total</label>
+        </td>
+
+        <td>
+            <label>  @Model.Sum(x => x.Budget)</label>
+        </td>
+        <td>
+            <label>  @Model.Sum(x => x.Expense)</label>
+        </td>
+        <td>
+            <label> @(Model.Sum(x => x.Budget) - Model.Sum(x => x.Expense))</label>
+        </td>
+
+    </tr>
 
 </table>
