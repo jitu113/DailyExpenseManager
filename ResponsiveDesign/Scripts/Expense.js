@@ -19,7 +19,12 @@ app.controller('myCtrl', function ($scope, $http) {
     $scope.LstOfExpensDetails = LstOfExpensDetails;
     $(".close").click(function () {
         $("#myModal").css('display', 'none');
+        $("#SearchModal").css('display', 'none');
     });
+    $(".search").click(function () {
+        $("#SearchModal").css('display', 'block');
+    })
+
     $(".create").click(function () {
         $("#myModal").css('display', 'block');
         $("#dateid").val(GetCurrentDate());
